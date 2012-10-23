@@ -1,0 +1,5 @@
+
+<animation name='anims' class='anims-dialog' sheet='anims' />
+<animation name='rufioh_sheepish' class='rufioh-dialog' sheet='rufioh_sheepish' />
+<asset name='anims' type='graphic'>anims.txt</asset>
+<asset name='rufioh_sheepish' type='graphic'>rufioh_sheepish.png</asset>
