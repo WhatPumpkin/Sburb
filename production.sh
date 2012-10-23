@@ -1,9 +1,9 @@
-cat Iuppiter.js modernizr.js Jterniabound.js Sprite.js Fighter.js Character.js SpriteButton.js Animation.js Room.js FontEngine.js Action.js events.js Trigger.js commands.js serialization.js Dialoger.js Chooser.js Audio.js Assets.js Debugger.js Path.js ActionQueue.js > Sburb.js
+cat libs/Iuppiter.js libs/modernizr.js src/Sburb.js src/Sprite.js src/src/Fighter.js src/Character.js src/SpriteButton.js src/Animation.js src/Room.js src/FontEngine.js src/Action.js src/events.js src/Trigger.js src/commands.js src/serialization.js src/Dialoger.js src/Chooser.js src/Audio.js src/Assets.js src/Debugger.js src/Path.js src/ActionQueue.js > Sburb.js
 ./jsmin < Sburb.js > Sburb.min.js
 cp index.html index_dev.html
 rm index.html
 cp index_production.html index.html
-zip -r Jterniabound.zip Sburb.min.js index.html README-ownership-liscensing.txt resources levels 
+zip -r Sburb.zip Sburb.min.js index.html README.md resources levels 
 rm Sburb.js
 rm Sburb.min.js
 rm index.html
