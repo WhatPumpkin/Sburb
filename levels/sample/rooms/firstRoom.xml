@@ -84,8 +84,9 @@ safe than sorry.-->
         <triggers>
 
           <trigger>
-            spriteProperty,char,x > 1600
-              <action command='goBack'>
+            spriteProperty,char,x > 1680
+              <action command='deltaSprite'>
+			    <args>char,-20,0</args>
 			    <action command='fadeOut'>
                   <action command='talk'>
                     <args>@! You can't go that way.</args>

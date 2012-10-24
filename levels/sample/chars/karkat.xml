@@ -27,7 +27,7 @@ description -->
 	<asset name='karkat_shout' type='graphic'>dialogs/karkat/karkat_shout.png</asset>
 	<asset name='karkat_sullen' type='graphic'>dialogs/karkat/karkat_sullen.png</asset>
 	<asset name='karkat_talk' type='graphic'>dialogs/karkat/karkat_talk.png</asset>
-	<asset name='meme' type='graphic'>interface/meme1.png</asset>
+	<asset name='meme' type='graphic'>backgrounds/meme1.png</asset>
 </assets>
 
 <!-- sprite for image in dialogs -->
