@@ -86,9 +86,11 @@ safe than sorry.-->
           <trigger>
             spriteProperty,char,x > 1600
               <action command='goBack'>
-                <action command='talk'>
-                  <args>@! You can't go that way.</args>
-                </action>
+			    <action command='fadeOut'>
+                  <action command='talk'>
+                    <args>@! You can't go that way.</args>
+                  </action>
+				</action>  
               </action>  
             </action>
           </trigger>
@@ -119,7 +121,7 @@ safe than sorry.-->
   				@meenah_angrytalk This is my sample I swear to #FF00FFgod## I will fight you. Get out. _Get ouuuuuut._
   				@karkat_talk what
   				@meenah_annoyed ouuuuuuut
-                                @karkat_talk~palm
+                @karkat_talk~meme
   			</args>
   		</action>
   	</character>
