@@ -1,0 +1,66 @@
+<!-- In this file we configure the user interface -->
+<sburb description='ui configuration'>
+
+<assets>
+	<!-- SburbFont is the font the system will try to use by default. Here we specify
+	what fonts the system should try to use. The first one it finds that works it
+	will use -->
+  <asset name='SburbFont' type='font'>
+  	local:Courier New Bold, 
+  	local:Courier New, 
+    url: fonts/cour.woff,
+    url: fonts/cour.ttf,
+  	weight:bold
+  </asset>
+  
+  <!-- An asset named preloaderBG will be rendered on the loading screen-->
+  <asset name='preloaderBG' type='graphic'>interface/load.png</asset>
+  
+	<asset name='volumeControl' type='graphic'>interface/volumeControl.png</asset>
+	<asset name='saveControl' type='graphic'>interface/save_icon.png</asset>
+	<asset name='helpControl' type='graphic'>interface/helpControl.png</asset>
+
+  <asset name='dialogBox' type='graphic'>interface/boxes/dialogBoxBig.png</asset>
+  <asset name='closeButtonSheet' type='graphic'>interface/closeconversation.png</asset>
+  
+</assets>
+
+<!-- lots of user interface stuff is wrapped in the <hud> tag -->
+<hud>
+		<!-- here we specify what all the buttons will show up in the HUD.
+		No button is hardcoded. All of these can be removed with no consequence. -->
+  	<spritebutton name='volumeButton' x='9' y='9' width='54' height='36' sheet='volumeControl'>
+  		<action command='toggleVolume' silent='true'></action>
+  	</spritebutton>
+  	
+  	<spritebutton name='helpButton' x='591' y='9' width='54' height='63' sheet='helpControl'>
+  		<action command='talk' soft='true'>
+  			<args>@! Use the arrow keys or WASD to move, and space to interact.</args>
+  		</action>
+  	</spritebutton>
+  	
+  	<spritebutton name='saveButton' x='558' y='18' sheet='saveControl'>
+  		<action command='talk' soft='true'>
+  			<args>
+  			@! Warning: this feature is experimental. Use it only if you're having stability issues and want to keep your place should the application crash. Save files are discarded when the browser is closed.
+  			</args>
+				<action command='saveOrLoad' >
+					<args></args>
+				</action>
+  		</action>
+  	</spritebutton>
+  	
+  	<!-- here we configure all the parameters used by the dialoger system. This are
+  	pretty reasonable defaults, but you can mess around with them if you want -->
+		<dialoger alertPos="56,120" talkPosRight="20,120" talkPosLeft="90,120" hiddenPos="-1000,120"
+			spriteStartLeft="-300,450" spriteEndLeft="100,450" spriteStartRight="950,450" spriteEndRight="550,450"
+			alertTextDimensions="30,30,450,220" leftTextDimensions="150,30,350,220" rightTextDimensions="30,30,350,220"
+			box="dialogBox">
+		</dialoger>
+</hud>
+
+<!-- This button will be shown during long conversations. The name is a keyword. -->
+<spritebutton name='closeButton' x='220' y='60' width='203' height='37' sheet='closeButtonSheet'>
+	<action command='skipDialog' silent='true'> </action>
+</spritebutton>
+</sburb>

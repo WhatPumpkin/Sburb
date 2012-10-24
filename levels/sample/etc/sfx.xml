@@ -1,0 +1,21 @@
+<!-- here we specify any sound effects used by the game. We specify all audio files
+with an ogg-vorbis and mp3 version due to conflicts between browsers over
+the HTML5 audio specification, that are unlikely to be resolved soon. 
+
+As of this writing:
+Firefox, Chrome, and Opera all support ogg files (team open standards)
+Safari, Chrome, and Internet Explorer all support mp3 files (team copyright)
+
+The first match that is found will be used. The others will never be loaded at all.
+If you fail to include both versions, your application will simply fail 
+to work in some browsers. 
+-->
+<sburb description='sfx'>
+<assets>
+	<!-- These two sounds are keywords used by the openChest command. 
+	If they are absent, no sound will be played when chests are open, but the
+	application will otherwise be fine. -->
+  <asset name='itemGetSound' type='audio'>audio/sfx/ItemGetNoVoice.oga;audio/sfx/ItemGetNoVoice.mp3</asset>
+  <asset name='openSound' type='audio'>audio/sfx/Open1.oga;audio/sfx/Open1.mp3</asset>
+</assets>
+</sburb>

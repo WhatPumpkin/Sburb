@@ -1,0 +1,61 @@
+<!-- In this file we specify standard "template classes" used by our application.
+These are common patterns in our markup that we'd like to be able to reuse. While
+template classes can be specified in any file, this is a good place to put templates
+that you want to use a lot, but otherwise have no reasonable place for.
+
+Any tag with the same tagname (e.g. "sprite" or "action") and class name
+(e.g. class='meenah' or class='chest1') as a template will have the templates
+values injected into it at parse time. If the tag has specified some values
+that the class also has, the tag's values will be used instead of the
+template's. However there is no way to "override" the internal contents
+of a template like this. The entirety of a template's inner body will be inserted
+unmodified. -->
+<sburb desc="Standard Template Resources">
+	
+	<assets>
+  		<asset name='chest1OpenSheet' type='graphic'>objects/chests/chest1o.png</asset>
+  		<asset name='chest1ClosedSheet' type='graphic'>objects/chests/chest1.png</asset>
+	</assets>
+
+	<!-- templates are specified in the <classes> tag. -->
+	<classes>
+		
+		<!-- handy chest template (see usage in rooms/firstRoom.xml) -->
+		<sprite class='chest1' width='40' height='15' depthing='1' collidable='true'>
+				<animation name='closed' sheet='chest1ClosedSheet' x='-48' y='-40' />
+				<animation name='open' sheet='chest1OpenSheet' x='-48' y='-40' loopNum='0' followUp='opened'/>
+				<animation name='opened' sheet='chest1OpenSheet' x='-48' y='-40' loopNum='0'/>
+		</sprite>
+  	
+  	<!-- some common actions used -->
+  	<action class='notForYou' command='goBack'>
+			<args>char</args>
+			<action command='talk'>
+				<args>@! Where do you think YOU'RE going!</args>
+			</action>
+		</action>
+
+	  <action class='finish' command='goBack'>
+			<args>char</args>
+			<action command='talk'>
+				<args>@! This leads to the end of the game. Are you sure you're done here?</args>
+				<action command='presentActions'>
+					<args>
+						<action command='fadeOut' name='Yes.'>
+							<action command='presentActions'>
+								<args>
+									<action command='loadStateFile' name='Start over.'>
+											<args>../init.xml,false</args>
+									</action>
+								</args>
+							</action>
+						</action>
+						<action command='cancel' name='No.'/>
+					</args>
+				</action>
+			</action>
+		</action>
+	</classes>
+	
+	
+</sburb>
