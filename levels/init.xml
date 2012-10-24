@@ -1,0 +1,41 @@
+<!-- This file is used to bootstrap the rest of the application into existence.
+Ideally it should be kept small and thin. While it can be renamed and moved,
+keeping it here lets other code know how to start your application more easily.
+
+name and version are used by the saving/loading API. Changing either will invalidate
+a user's save files (this is good if you've changed anything).
+
+description is a strictly aesthetic property that's handy for keeping track
+of things.
+
+scale specifies to what sized "grid" everything snaps to. In this case
+scale='2' means everything snaps to a grid of 2x2 sqaures. This is desirable to
+make everything line up nicely. Internally everything can have arbitrary positions,
+they'll just be rendered in snapped positions.
+
+char describes the start state of the game. The system will start in the
+room this sprite is found in with that sprite under the user's control. It
+must be a <character> or <fighter>. curRoom can also optionally be used to
+override that part of this behaviour.
+
+bgm specifies what song if any to play at the start of the game.
+
+levelPath and resourcePath specify where all resource and level path specifications
+should be relative to.-->
+
+<sburb name="Sburb-Sample" version="1.0" description="initialization"
+	char='meenah' bgm='meenahSong' scale='2' 
+	levelPath='levels/sample' resourcePath='resources/sample'>
+
+	<!-- We generally don't have any actual content in here. We just load in
+	dependencies. Usually core specifications found in "etc" and then the starting
+	room. -->
+	<dependencies>
+		<dependency>etc/ui.xml</dependency>
+		<dependency>etc/standardTemplates.xml</dependency>
+		<dependency>etc/sfx.xml</dependency>
+		<dependency>rooms/firstRoom.xml</dependency>
+	</dependencies>
+
+	
+</sburb>
