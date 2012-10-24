@@ -6,6 +6,7 @@ is entered for the first time. -->
 
 <dependencies>
 	<dependency>chars/meenah.xml</dependency> <!-- loading in everything meenah entails -->
+	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
 </dependencies>
 
 <assets>
@@ -84,9 +85,38 @@ safe than sorry.-->
   	are a great way to seperate logic and content, as well as recycle common
   	patterns. -->
   	<character class='meenah' x='500' y='500'>
-  		
+  		<action class='beMeenah'/>
   	</character>
   
+  	<character class='karkat' x='420' y='500'>
+  		<action class='beKarkat'/>
+  		<action command='talk' name='Talk.'>
+  			<args>
+  				@meenah_talk Hey what're you doing in my sample. 
+  				@meenah_angrytalk This is my sample I swear to god I will fight you. Get out. Get ouuuuuut.
+  				@karkat_talk what
+  				@meenah_annoyed ouuuuuuut
+  			</args>
+  		</action>
+  	</character>
+  	
+  	<character class='karkat' name='karkat2' x='620' y='450'>
+  		<action command='follow' sprite='meenah' name='Follow.'>
+  			<args>karkat2,meenah</args>
+  			<action command='removeAction' noDelay='true'>
+  				<args>karkat2,Follow.</args>
+  			</action>
+  		</action>
+  	</character>
+  	
+  	<character class='karkat' name='karkat3' x='620' y='650'>
+  		<action command='follow' sprite='meenah' name='Follow.'>
+  			<args>karkat3,meenah</args>
+  			<action command='removeAction' noDelay='true'>
+  				<args>karkat3,Follow.</args>
+  			</action>
+  		</action>
+  	</character>
   	<!-- here we're adding a standard chest based on a template class found in
   	etc/standardTemplates.xml -->
   	<sprite class='chest1' name='chest1' x='166' y='498'>
