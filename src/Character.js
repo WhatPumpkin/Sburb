@@ -85,9 +85,9 @@ Sburb.Character.prototype.handleFollowing = function(curRoom){
 		var destPos = null;
 		while(this.followBuffer.length>this.followBufferLength){
 			destPos = this.followBuffer[0];
-			var movingSideways = false;
 			var moveMap = curRoom.getInverseMoveFunction(this);
 			var delta;
+			var keys = [];
 			if(moveMap){
 				delta = moveMap(destPos.x-this.x,destPos.y-this.y);
 			}else{
@@ -95,21 +95,27 @@ Sburb.Character.prototype.handleFollowing = function(curRoom){
 			}
 			if(Math.abs(delta.x)>=this.speed/1.9){
 				if(delta.x>0){
-					this.moveRight();
+					keys.push(Sburb.Keys.right);
 				}else{
-					this.moveLeft();
+					keys.push(Sburb.Keys.left);
 				}
-				movingSideways = true;
 			}
 			if(Math.abs(delta.y)>=this.speed/1.9){
 				if(delta.y>0){
-					this.moveDown(movingSideways);
+					keys.push(Sburb.Keys.down);
 				}else{
-					this.moveUp(movingSideways);
+					keys.push(Sburb.Keys.up);
 				}
-			}else if(!movingSideways){
+			}
+			if(keys.length==0){
 				this.followBuffer.splice(0,1);
 				continue;
+			}else{
+				var pressed = {};
+				for(var i=0; i<keys.length;i++){
+					pressed[keys[i]] = true;
+				}
+				this.handleInputs(pressed,keys);
 			}
 			break;
 		}
