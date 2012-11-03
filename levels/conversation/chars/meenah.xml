@@ -1,0 +1,26 @@
+<!-- This is a modified "character" file to include only the parts that involve conversations. -->
+<sburb description='meenah'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='meenah-dialog' frameInterval='6' x='-180' y='-524'/>
+</classes>
+
+<assets>
+	<!-- her dialog sprites -->
+	<asset name='meenah_talk' type='graphic'>dialogs/meenah/meenah_talk.png</asset>
+	<asset name='meenah_angrytalk' type='graphic'>dialogs/meenah/meenah_angrytalk.png</asset>
+	<asset name='meenah_annoyed' type='graphic'>dialogs/meenah/meenah_annoyed.png</asset>
+	<asset name='meenah_ohyes' type='graphic'>dialogs/meenah/meenah_ohyes.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+  		<animation name='meenah_talk' class='meenah-dialog' sheet='meenah_talk' length='2'/>
+  		<animation name='meenah_angrytalk' class='meenah-dialog' sheet='meenah_angrytalk' length='2'/>
+  		<animation name='meenah_annoyed' class='meenah-dialog' sheet='meenah_annoyed'/>
+  		<animation name='meenah_ohyes' class='meenah-dialog' sheet='meenah_ohyes'/>
+  </dialogsprites>
+</hud>
+</sburb>

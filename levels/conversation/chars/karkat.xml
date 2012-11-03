@@ -4,25 +4,9 @@ description -->
 
 <classes>
 	<animation class='karkat-dialog' frameInterval='6' x='-180' y='-454'/>
-	
-	<character class='karkat' name='karkat' sx='-50' sy='-115' sWidth='100' sHeight='130' width='35' height='25' sheet='karkatSheet' state='walkFront' facing='Front'>
-		
-	</character>
-	
-	<action class='beKarkat' name='Be Karkat.' command='changeChar'>
-		<args>karkat</args>
-		<action command='playSong'>
-			<args>karkatSong</args>
-		</action>
-	</action>
 </classes>
 
 <assets>
-
-	<asset name='karkatSheet' type='graphic'>chars/karkat/karkat.png</asset>
-	
-	<asset name='karkatSong' type='audio'>audio/music/demoscene.oga;audio/music/demoscene.mp3</asset> <!-- loops to 0 -->
-	
 	<asset name='karkat_idle' type='graphic'>dialogs/karkat/karkat_idle.png</asset>
 	<asset name='karkat_shout' type='graphic'>dialogs/karkat/karkat_shout.png</asset>
 	<asset name='karkat_sullen' type='graphic'>dialogs/karkat/karkat_sullen.png</asset>

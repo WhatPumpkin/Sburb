@@ -23,18 +23,16 @@ bgm specifies what song if any to play at the start of the game.
 levelPath and resourcePath specify where all resource and level path specifications
 should be relative to.-->
 
-<sburb name="Sburb-Sample" version="1.0" description="initialization"
-	char='meenah' bgm='meenahSong' scale='2' 
-	levelPath='levels/sample' resourcePath='resources/sample'>
+<sburb name="Sburb-Just-Talk" version="1.0" description="initialization"
+	char='dummyChar' curRoom='dummyRoom' scale='2' 
+	levelPath='levels/conversation' resourcePath='resources/sample'>
 
 	<!-- We generally don't have any actual content in here. We just load in
 	dependencies. Usually core specifications found in "etc" and then the starting
 	room. -->
 	<dependencies>
 		<dependency>etc/ui.xml</dependency>
-		<dependency>etc/standardTemplates.xml</dependency>
-		<dependency>etc/sfx.xml</dependency>
-		<dependency>rooms/firstRoom.xml</dependency>
+		<dependency>conversation.xml</dependency>
 	</dependencies>
 
 	

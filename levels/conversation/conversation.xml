@@ -1,0 +1,34 @@
+<!-- This file describes the conversation. -->
+<sburb description="conversation" startAction="conversation">
+
+<dependencies>
+	<dependency>chars/meenah.xml</dependency> <!-- loading in everything meenah entails -->
+	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
+</dependencies>
+
+<assets>
+	<asset name='bg' type='graphic'>backgrounds/firstRoomBG.png</asset>
+</assets>
+
+<action name="conversation" command="talk">
+	<args>
+		@meenah_talk This is a sample conversation
+		@karkat_talk I agree
+		@meenah_annoyed fuck off this is my sample
+		@karkat_idle no
+		@meenah_talk I said
+		@meenah_angrytalk FUCK OFF THIS IS MY GODDAMN SAMPLE!
+		@karkat_sullen fine
+	</args>
+</action>
+
+
+<!-- Here we're doing some dummy stuff to get the engine working right -->
+<fighter name='dummyChar'/>
+
+<rooms>
+  <room name='dummyRoom'>
+  	<sprite name='bg'/>
+  </room>
+</rooms>
+</sburb>

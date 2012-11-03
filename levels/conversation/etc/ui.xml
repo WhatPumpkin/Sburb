@@ -17,8 +17,6 @@
   <asset name='preloaderBG' type='graphic'>interface/load.png</asset>
   
 	<asset name='volumeControl' type='graphic'>interface/volumeControl.png</asset>
-	<asset name='saveControl' type='graphic'>interface/save_icon.png</asset>
-	<asset name='helpControl' type='graphic'>interface/helpControl.png</asset>
 
   <asset name='dialogBox' type='graphic'>interface/boxes/dialogBoxBig.png</asset>
   <asset name='closeButtonSheet' type='graphic'>interface/closeconversation.png</asset>
@@ -31,23 +29,6 @@
 		No button is hardcoded. All of these can be removed with no consequence. -->
   	<spritebutton name='volumeButton' x='9' y='9' width='54' height='36' sheet='volumeControl'>
   		<action command='toggleVolume' silent='true'></action>
-  	</spritebutton>
-  	
-  	<spritebutton name='helpButton' x='591' y='9' width='54' height='63' sheet='helpControl'>
-  		<action command='talk' soft='true'>
-  			<args>@! Use the arrow keys or WASD to move, and space to interact.</args>
-  		</action>
-  	</spritebutton>
-  	
-  	<spritebutton name='saveButton' x='558' y='18' sheet='saveControl'>
-  		<action command='talk' soft='true'>
-  			<args>
-  			@! Warning: this feature is experimental. Use it only if you're having stability issues and want to keep your place should the application crash. Save files are discarded when the browser is closed.
-  			</args>
-				<action command='saveOrLoad' >
-					<args></args>
-				</action>
-  		</action>
   	</spritebutton>
   	
   	<!-- here we configure all the parameters used by the dialoger system. This are
