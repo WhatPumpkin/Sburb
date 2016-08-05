@@ -76,6 +76,28 @@ safe than sorry.-->
 	specified here if need be. The walkableMap is theoretically optional, but
 	it's incredibly useful and easy to use. -->
   <room name='firstRoom' walkableMap='firstRoomMap' scale='4'>
+        
+        <!-- here we define a trigger. triggers hold an action that is executed
+        whenever the trigger is true, in this case, when the player character is
+        near the right edge of the map. Note that actions and triggers can be
+        chained to create one larger action. -->
+        <triggers>
+
+          <trigger>
+            spriteProperty,char,x > 1680
+              <action command='deltaSprite'>
+			    <args>char,-20,0</args>
+			    <action command='fadeOut'>
+                  <action command='talk'>
+                    <args>@! You can't go that way.</args>
+                  </action>
+				</action>  
+              </action>
+          </trigger>
+
+  
+        </triggers>
+       
   
   	<!-- here we drop in our character. Since we specified everything in 
   	chars/meenah.xml, we don't have to do much here. We just need to specify
@@ -91,11 +113,15 @@ safe than sorry.-->
   	<character class='karkat' x='420' y='500'>
   		<action class='beKarkat'/>
   		<action command='talk' name='Talk.'>
+                        <!-- here we define dialog. each @ declares the start of a screen of dialog. @! gives a generic
+                        alert box, while @character_action shows the character_action dialogsprite, while coloring the text
+                        to match the character, if possible. _ underlines text.--> 
   			<args>
   				@meenah_talk Hey what're you doing in my sample. 
-  				@meenah_angrytalk This is my sample I swear to god I will fight you. Get out. Get ouuuuuut.
+  				@meenah_angrytalk This is my sample I swear to #FF00FFgod## I will fight you. Get out. _Get ouuuuuut._
   				@karkat_talk what
   				@meenah_annoyed ouuuuuuut
+                @karkat_talk~meme
   			</args>
   		</action>
   	</character>
