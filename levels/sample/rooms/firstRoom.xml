@@ -5,7 +5,8 @@ is entered for the first time. -->
 <sburb description="first room">
 
 <dependencies>
-	<dependency>chars/meenah.xml</dependency> <!-- loading in everything meenah entails -->
+	<dependency>chars/meenah.xml</dependency>
+	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
 	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
 </dependencies>
 
@@ -19,28 +20,12 @@ is entered for the first time. -->
 	find that's a good compromise for performance/complexity. 
 	
 	utils/image_slice/ has a utility for doing this automatically. -->
-  <asset name='firstRoomBG_0_0' type='graphic'>backgrounds/slices/firstRoomBG_0_0.png</asset>
-	<asset name='firstRoomBG_0_1' type='graphic'>backgrounds/slices/firstRoomBG_0_1.png</asset>
-	<asset name='firstRoomBG_0_2' type='graphic'>backgrounds/slices/firstRoomBG_0_2.png</asset>
-	<asset name='firstRoomBG_1_0' type='graphic'>backgrounds/slices/firstRoomBG_1_0.png</asset>
-	<asset name='firstRoomBG_1_1' type='graphic'>backgrounds/slices/firstRoomBG_1_1.png</asset>
-	<asset name='firstRoomBG_1_2' type='graphic'>backgrounds/slices/firstRoomBG_1_2.png</asset>
-	<asset name='firstRoomBG_2_0' type='graphic'>backgrounds/slices/firstRoomBG_2_0.png</asset>
-	<asset name='firstRoomBG_2_1' type='graphic'>backgrounds/slices/firstRoomBG_2_1.png</asset>
-	<asset name='firstRoomBG_2_2' type='graphic'>backgrounds/slices/firstRoomBG_2_2.png</asset>
-	<asset name='firstRoomBG_3_0' type='graphic'>backgrounds/slices/firstRoomBG_3_0.png</asset>
-	<asset name='firstRoomBG_3_1' type='graphic'>backgrounds/slices/firstRoomBG_3_1.png</asset>
-	<asset name='firstRoomBG_3_2' type='graphic'>backgrounds/slices/firstRoomBG_3_2.png</asset>
-	
-	<!-- note that there are missing images in the FG where transparent regions
-	have been discarded. This is handled correctly! -->
-	<asset name='firstRoomFG_1_0' type='graphic'>backgrounds/slices/firstRoomFG_1_0.png</asset>
-	<asset name='firstRoomFG_1_2' type='graphic'>backgrounds/slices/firstRoomFG_1_2.png</asset>
-	<asset name='firstRoomFG_2_0' type='graphic'>backgrounds/slices/firstRoomFG_2_0.png</asset>
-	<asset name='firstRoomFG_2_2' type='graphic'>backgrounds/slices/firstRoomFG_2_2.png</asset>
-	<asset name='firstRoomFG_3_0' type='graphic'>backgrounds/slices/firstRoomFG_3_0.png</asset>
-	<asset name='firstRoomFG_3_1' type='graphic'>backgrounds/slices/firstRoomFG_3_1.png</asset>
-	<asset name='firstRoomFG_3_2' type='graphic'>backgrounds/slices/firstRoomFG_3_2.png</asset>
+	<asset name='Room01_0_0' type='graphic'>backgrounds/slices/Room01_0_0.png</asset>
+	<asset name='Room01_0_1' type='graphic'>backgrounds/slices/Room01_0_1.png</asset>
+	<asset name='Room01_1_0' type='graphic'>backgrounds/slices/Room01_1_0.png</asset>
+	<asset name='Room01_1_1' type='graphic'>backgrounds/slices/Room01_1_1.png</asset>
+	<asset name='Room01_2_0' type='graphic'>backgrounds/slices/Room01_2_0.png</asset>
+	<asset name='Room01_2_1' type='graphic'>backgrounds/slices/Room01_2_1.png</asset>
 	
 	<!-- The map is a special black-and-white image describing walkable areas in
 	a room. White pixels are walkable, black are unwalkable. This actually consumes
@@ -48,7 +33,7 @@ is entered for the first time. -->
 	scale is a good compromise for performance/accuracy. However in sufficiently
 	large rooms this is still too much, and 25% scale in necessary. This leads to
 	a substantial sarcifice in hit-detection quality, so avoid big rooms!-->
-  <asset name='firstRoomMap' type='graphic'>backgrounds/firstRoomMap.png</asset>
+  <asset name='Room01Map' type='graphic'>backgrounds/Room01Map.png</asset>
   
   <!-- an item to be found in a chest, nothing special about it-->
   <asset name='item1' type='graphic'>objects/items/item1.png</asset>
@@ -75,34 +60,31 @@ safe than sorry.-->
 	camera can see. However width and height can be explicitly
 	specified here if need be. The walkableMap is theoretically optional, but
 	it's incredibly useful and easy to use. -->
-  <room name='firstRoom' walkableMap='firstRoomMap' scale='4'>
+  <room name='Room01' walkableMap='Room01Map' scale='4'>
   
   	<!-- here we drop in our character. Since we specified everything in 
-  	chars/meenah.xml, we don't have to do much here. We just need to specify
-  	her location. Note that class='meenah' will fill in all the values we
-  	didn't specify using the class in chars/meenah.xml, including any
+  	chars/posty.xml, we don't have to do much here. We just need to specify
+  	her location. Note that class='posty' will fill in all the values we
+  	didn't specify using the class in chars/posty.xml, including any
   	internal tags that may have been part of the class. Template classes
   	are a great way to seperate logic and content, as well as recycle common
   	patterns. -->
-  	<character class='meenah' x='500' y='500'>
-  		<action class='beMeenah'/>
+  	<character class='posty' x='285' y='400'>
+  		<action class='bePosty'/>
   	</character>
   
   	<character class='karkat' x='420' y='500'>
   		<action class='beKarkat'/>
   		<action command='talk' name='Talk.'>
   			<args>
-  				@meenah_talk Hey what're you doing in my sample. 
-  				@meenah_angrytalk This is my sample I swear to god I will fight you. Get out. Get ouuuuuut.
-  				@karkat_talk what
-  				@meenah_annoyed ouuuuuuut
+  				@! sup
   			</args>
   		</action>
   	</character>
   	
   	<character class='karkat' name='karkat2' x='620' y='450'>
-  		<action command='follow' sprite='meenah' name='Follow.'>
-  			<args>karkat2,meenah</args>
+  		<action command='follow' sprite='posty' name='Follow.'>
+  			<args>karkat2,posty</args>
   			<action command='removeAction' noDelay='true'>
   				<args>karkat2,Follow.</args>
   			</action>
@@ -110,8 +92,8 @@ safe than sorry.-->
   	</character>
   	
   	<character class='karkat' name='karkat3' x='620' y='650'>
-  		<action command='follow' sprite='meenah' name='Follow.'>
-  			<args>karkat3,meenah</args>
+  		<action command='follow' sprite='posty' name='Follow.'>
+  			<args>karkat3,posty</args>
   			<action command='removeAction' noDelay='true'>
   				<args>karkat3,Follow.</args>
   			</action>
@@ -136,13 +118,8 @@ safe than sorry.-->
    
    <!-- Note no depthing specification puts a sprite in the background. Not 
    specifying coordinates also puts them at (0,0) by default (top-left corner). -->
-    <sprite name='firstRoomBG'>
-    	<animation sheet='firstRoomBG' sliced='true' numCols='4' numRows='3' colSize='500' rowSize='500'/>
-    </sprite>
-
-		<!-- note depthing='2' is what puts this in the foreground -->
-		<sprite name='firstRoomFG' depthing='2'>
-    	<animation sheet='firstRoomFG' sliced='true' numCols='4' numRows='3' colSize='500' rowSize='500'/>
+    <sprite name='Room01BG'>
+    	<animation sheet='Room01' sliced='true' numCols='3' numRows='2' colSize='500' rowSize='500'/>
     </sprite>
   </room>
 </rooms>

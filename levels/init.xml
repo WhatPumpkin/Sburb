@@ -24,7 +24,7 @@ levelPath and resourcePath specify where all resource and level path specificati
 should be relative to.-->
 
 <sburb name="Sburb-Sample" version="1.0" description="initialization"
-	char='meenah' bgm='meenahSong' scale='2' 
+	char='posty' bgm='postySong' scale='2' 
 	levelPath='levels/sample' resourcePath='resources/sample'>
 
 	<!-- We generally don't have any actual content in here. We just load in

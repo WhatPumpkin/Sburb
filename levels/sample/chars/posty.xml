@@ -1,0 +1,55 @@
+<!-- This is a fairly standard "character" file. Here we describe everything
+a character entails, including their specification, common actions, dialogsprites
+and even their music. Often this is used to also link in their actual conversations. -->
+<sburb description='posty'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='posty-dialog' frameInterval='6' x='-180' y='-524'/>
+	
+	<!-- The description of this character (see usage in rooms/firstRoom.xml). 
+	Characters use a single sprite sheet to describe eight different animations, 
+	and therefore need a lot of parameters to properly describe themselves.
+	Characters are by default depth='1' (in the midground). -->
+	<character class='posty' name='posty' sx='-50' sy='-115' sWidth='100' sHeight='130' width='35' height='25' sheet='postySheet' state='walkFront' facing='Front'>
+		
+	</character>
+	
+	<!-- common command to "be" the character. -->
+	<action class='bePosty' name='Be Posty.' command='macro'>
+		<args>
+			<action command='changeChar' noDelay='true'>
+				<args>posty</args>
+				<action command='playSong' noDelay='true'>
+					<args>postySong,0</args>
+				</action>
+			</action>
+		</args>
+	</action>
+</classes>
+
+<assets>
+	<!-- the sprite sheet containing all her animations -->
+	<asset name='postySheet' type='graphic'>chars/posty/posty.png</asset>
+
+	<!-- her background music -->
+	<asset name='postySong' type='audio'>audio/music/muscles.oga;audio/music/muscles.mp3</asset> <!-- loops to 0 -->
+	
+	<!-- her dialog sprites -->
+	<asset name='meenah_talk' type='graphic'>dialogs/meenah/meenah_talk.png</asset>
+	<asset name='meenah_angrytalk' type='graphic'>dialogs/meenah/meenah_angrytalk.png</asset>
+	<asset name='meenah_annoyed' type='graphic'>dialogs/meenah/meenah_annoyed.png</asset>
+	<asset name='meenah_ohyes' type='graphic'>dialogs/meenah/meenah_ohyes.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+		<!-- TODO: add actual dialog sprites -->
+		<animation name='meenah_talk' class='meenah-dialog' sheet='meenah_talk' length='2'/>
+  		<animation name='meenah_angrytalk' class='meenah-dialog' sheet='meenah_angrytalk' length='2'/>
+  		<animation name='meenah_annoyed' class='meenah-dialog' sheet='meenah_annoyed'/>
+  		<animation name='meenah_ohyes' class='meenah-dialog' sheet='meenah_ohyes'/>
+	</dialogsprites>
+</hud>
+</sburb>

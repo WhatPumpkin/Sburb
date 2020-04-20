@@ -6,7 +6,7 @@ for file in $FILES
 do
 	purename="${file%.*}"
 	prefix="${purename%_*}"
-	size=1000
+	size=500
 	row=$(echo "$purename" | cut -d _ -f 2)
 	col=$(echo "$purename" | cut -d _ -f 3)
 	x=$(($col*$size))
