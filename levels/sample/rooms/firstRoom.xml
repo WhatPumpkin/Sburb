@@ -5,7 +5,7 @@ is entered for the first time. -->
 <sburb description="first room">
 
 <dependencies>
-	<dependency>chars/meenah.xml</dependency>
+	<!-- dependency>chars/meenah.xml</dependency-->
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
 	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
 </dependencies>
