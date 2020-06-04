@@ -5,7 +5,7 @@ and even their music. Often this is used to also link in their actual conversati
 
 <classes>
 	<!-- default values for all this character's dailog sprites -->
-	<animation class='posty-dialog' frameInterval='6' x='-180' y='-524'/>
+	<animation class='posty-dialog' frameInterval='6' x='-180' y='-514'/>
 	
 	<!-- The description of this character (see usage in rooms/firstRoom.xml). 
 	Characters use a single sprite sheet to describe eight different animations, 
@@ -36,20 +36,15 @@ and even their music. Often this is used to also link in their actual conversati
 	<asset name='postySong' type='audio'>audio/music/muscles.oga;audio/music/muscles.mp3</asset> <!-- loops to 0 -->
 	
 	<!-- her dialog sprites -->
-	<asset name='meenah_talk' type='graphic'>dialogs/meenah/meenah_talk.png</asset>
-	<asset name='meenah_angrytalk' type='graphic'>dialogs/meenah/meenah_angrytalk.png</asset>
-	<asset name='meenah_annoyed' type='graphic'>dialogs/meenah/meenah_annoyed.png</asset>
-	<asset name='meenah_ohyes' type='graphic'>dialogs/meenah/meenah_ohyes.png</asset>
+	<asset name='posty_idle' type='graphic'>dialogs/posty/posty_idle.png</asset>
+	<asset name='posty_neutraltalk' type='graphic'>dialogs/posty/posty_neutraltalk.png</asset>
 </assets>
 
 <hud>
 	<!-- this is the actual place where the dialog sprites get registered -->
-	<dialogsprites>	
-		<!-- TODO: add actual dialog sprites -->
-		<animation name='meenah_talk' class='meenah-dialog' sheet='meenah_talk' length='2'/>
-  		<animation name='meenah_angrytalk' class='meenah-dialog' sheet='meenah_angrytalk' length='2'/>
-  		<animation name='meenah_annoyed' class='meenah-dialog' sheet='meenah_annoyed'/>
-  		<animation name='meenah_ohyes' class='meenah-dialog' sheet='meenah_ohyes'/>
+	<dialogsprites>
+		<animation name='posty_idle' class='posty-dialog' sheet='posty_idle'/>
+		<animation name='posty_neutraltalk' class='posty-dialog' sheet='posty_neutraltalk' length='2'/>
 	</dialogsprites>
 </hud>
 </sburb>

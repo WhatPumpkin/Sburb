@@ -31,10 +31,10 @@ description -->
 
 <hud>
 	<dialogsprites>	
-			<animation name='karkat_idle' class='karkat-dialog' sheet='karkat_idle' />
-			<animation name='karkat_shout' class='karkat-dialog' sheet='karkat_shout'  length='2'/>
-			<animation name='karkat_sullen' class='karkat-dialog' sheet='karkat_sullen' />
-			<animation name='karkat_talk' class='karkat-dialog' sheet='karkat_talk'  length='2'/>
+		<animation name='karkat_idle' class='karkat-dialog' sheet='karkat_idle' />
+		<animation name='karkat_shout' class='karkat-dialog' sheet='karkat_shout'  length='2'/>
+		<animation name='karkat_sullen' class='karkat-dialog' sheet='karkat_sullen' />
+		<animation name='karkat_talk' class='karkat-dialog' sheet='karkat_talk'  length='2'/>
   </dialogsprites>
 </hud>
 </sburb>
