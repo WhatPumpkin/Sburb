@@ -7,7 +7,8 @@ is entered for the first time. -->
 <dependencies>
 	<!--dependency>chars/meenah.xml</dependency-->
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
-	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
+	<!--dependency>chars/karkat.xml</dependency--> <!-- and karkat -->
+	<dependency>chars/rr.xml</dependency> <!-- and now rr!-->
 </dependencies>
 <!-- quick test?-->
 <assets>
@@ -33,10 +34,10 @@ is entered for the first time. -->
 	scale is a good compromise for performance/accuracy. However in sufficiently
 	large rooms this is still too much, and 25% scale in necessary. This leads to
 	a substantial sarcifice in hit-detection quality, so avoid big rooms!-->
-  <asset name='Room01Map' type='graphic'>backgrounds/Room01Map.png</asset>
-  
-  <!-- an item to be found in a chest, nothing special about it-->
-  <asset name='item1' type='graphic'>objects/items/item1.png</asset>
+	<asset name='Room01Map' type='graphic'>backgrounds/Room01Map.png</asset>
+	
+	<!-- an item to be found in a chest, nothing special about it-->
+	<asset name='item1' type='graphic'>objects/items/item1.png</asset>
 </assets>
 
 <!-- We create the sprite for this item outside of everything else
@@ -60,67 +61,47 @@ safe than sorry.-->
 	camera can see. However width and height can be explicitly
 	specified here if need be. The walkableMap is theoretically optional, but
 	it's incredibly useful and easy to use. -->
-  <room name='Room01' walkableMap='Room01Map' scale='4'>
-  
-  	<!-- here we drop in our character. Since we specified everything in 
-  	chars/posty.xml, we don't have to do much here. We just need to specify
-  	her location. Note that class='posty' will fill in all the values we
-  	didn't specify using the class in chars/posty.xml, including any
-  	internal tags that may have been part of the class. Template classes
-  	are a great way to seperate logic and content, as well as recycle common
-  	patterns. -->
-  	<character class='posty' x='285' y='400'>
-  		<action class='bePosty'/>
-  	</character>
-  
-  	<character class='karkat' x='420' y='500'>
-  		<action class='beKarkat'/>
-  		<action command='talk' name='Talk.'>
-  			<args>
-  				@! sup
-  			</args>
-  		</action>
-  	</character>
-  	
-  	<character class='karkat' name='karkat2' x='620' y='450'>
-  		<action command='follow' sprite='posty' name='Follow.'>
-  			<args>karkat2,posty</args>
-  			<action command='removeAction' noDelay='true'>
-  				<args>karkat2,Follow.</args>
-  			</action>
-  		</action>
-  	</character>
-  	
-  	<character class='karkat' name='karkat3' x='620' y='650'>
-  		<action command='follow' sprite='posty' name='Follow.'>
-  			<args>karkat3,posty</args>
-  			<action command='removeAction' noDelay='true'>
-  				<args>karkat3,Follow.</args>
-  			</action>
-  		</action>
-  	</character>
-  	<!-- here we're adding a standard chest based on a template class found in
-  	etc/standardTemplates.xml -->
-  	<sprite class='chest1' name='chest1' x='166' y='498'>
-			<action command='openChest' name='Open.'>
-				<args>
-					chest1,item1, @! You got a CAN OF TAB!
-				</args>
-			</action>
+	<room name='Room01' walkableMap='Room01Map' scale='4'>
+
+		<!-- here we drop in our character. Since we specified everything in 
+		chars/posty.xml, we don't have to do much here. We just need to specify
+		her location. Note that class='posty' will fill in all the values we
+		didn't specify using the class in chars/posty.xml, including any
+		internal tags that may have been part of the class. Template classes
+		are a great way to seperate logic and content, as well as recycle common
+		patterns. -->
+		<character class='posty' x='285' y='400'>
+			<action class='bePosty'/>
+		</character>
+
+		<character class='rr' x='627' y='275'>
+			<action class='weatherTalk'/>
+			<action class='roomTalk'/>
+			<action class='thirdTalk'/>
+		</character>
+
+		<!-- here we're adding a standard chest based on a template class found in
+		etc/standardTemplates.xml -->
+		<sprite class='chest1' name='chest1' x='166' y='498'>
+				<action command='openChest' name='Open.'>
+					<args>
+						chest1,item1, @! You got a CAN OF TAB!
+					</args>
+				</action>
+			</sprite>
+		
+		<!-- here we're adding in our BG and FG. This is the second half of our 
+		optimization. To avoid creating a dozen sprites for every single tile, we
+		specify that this image has been sliced up into tiles. Then we just specify
+		how many there are and how big they are, and the system will find all of them
+		and tile them correctly based on their names. This also makes it very easy
+		to transition from using one big image to a sliced up one. -->
+
+		<!-- Note no depthing specification puts a sprite in the background. Not 
+		specifying coordinates also puts them at (0,0) by default (top-left corner). -->
+		<sprite name='Room01BG'>
+			<animation sheet='Room01' sliced='true' numCols='3' numRows='2' colSize='500' rowSize='500'/>
 		</sprite>
-   
-   <!-- here we're adding in our BG and FG. This is the second half of our 
-   optimization. To avoid creating a dozen sprites for every single tile, we
-   specify that this image has been sliced up into tiles. Then we just specify
-   how many there are and how big they are, and the system will find all of them
-   and tile them correctly based on their names. This also makes it very easy
-   to transition from using one big image to a sliced up one. -->
-   
-   <!-- Note no depthing specification puts a sprite in the background. Not 
-   specifying coordinates also puts them at (0,0) by default (top-left corner). -->
-    <sprite name='Room01BG'>
-    	<animation sheet='Room01' sliced='true' numCols='3' numRows='2' colSize='500' rowSize='500'/>
-    </sprite>
-  </room>
+	</room>
 </rooms>
 </sburb>

@@ -1,0 +1,68 @@
+<!-- This is a fairly standard "character" file. Here we describe everything
+a character entails, including their specification, common actions, dialogsprites
+and even their music. Often this is used to also link in their actual conversations. -->
+<sburb description='rr'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='rr-dialog' frameInterval='6' x='-180' y='-524'/>
+	
+	<!-- The description of this character (see usage in rooms/firstRoom.xml). 
+	Characters use a single sprite sheet to describe eight different animations, 
+	and therefore need a lot of parameters to properly describe themselves.
+	Characters are by default depth='1' (in the midground). -->
+	<character class='rr' name='rr' sx='-50' sy='-115' sWidth='100' sHeight='130' width='100' height='25' sheet='rrSheet' state='walkFront' facing='Front'>
+		
+	</character>
+	
+	<action class='weatherTalk' name='Ask about the weather.' command='talk'>
+		<args>
+			@posty_neutraltalk Hi there, how's the weather?
+			@rr_idle ...
+			@posty_neutraltalk Uh, hello?
+			@rr_idle ...
+			@! Looks like he doesn't want to talk about the weather.
+		</args>
+	</action>
+	<action class='roomTalk' name='Ask about this room.' command='talk'>
+		<args>
+			@posty_neutraltalk What do you think about this room?
+			@rr_idle ...
+			@posty_neutraltalk Uh, hello?
+			@rr_idle ...
+			@rr_angrytalk It's alright, but the door to Room 3 is locked.
+			@posty_neutraltalk Which room is Room 3?
+			@rr_angrytalk The door right next to me. I wanted to leave this room earlier, but the door wouldn't budge. So I'm stuck here.
+			@posty_idletalk Ah, I see.
+		</args>
+	</action>
+	<action class='thirdTalk' name='Third dialog option.' command='talk'>
+		<args>
+			@posty_neutral This is a placeholder text.
+			@rr_angrytalk What's that supposed to mean?
+			@posty_neutral Oh, uh nothing.
+			@rr_idle ...
+			@rr_smirktalk Alright, whatever you say.
+		</args>
+	</action>
+</classes>
+
+<assets>
+	<!-- the sprite sheet containing all their animations -->
+	<asset name='rrSheet' type='graphic'>chars/rr/rr.png</asset>
+
+	<!-- their dialog sprites -->
+	<asset name='rr_idle' type='graphic'>dialogs/rr/rr_idle.png</asset>
+	<asset name='rr_angrytalk' type='graphic'>dialogs/rr/rr_angrytalk.png</asset>
+	<asset name='rr_smirktalk' type='graphic'>dialogs/rr/rr_smirktalk.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+		<animation name='rr_idle' class='rr-dialog' sheet='rr_idle'/>
+		<animation name='rr_angrytalk' class='rr-dialog' sheet='rr_angrytalk' length='2'/>
+		<animation name='rr_smirktalk' class='rr-dialog' sheet='rr_smirktalk' length='2'/>
+	</dialogsprites>
+</hud>
+</sburb>
