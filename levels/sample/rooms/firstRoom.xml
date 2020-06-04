@@ -9,7 +9,7 @@ is entered for the first time. -->
 	<dependency>chars/posty.xml</dependency> <!-- loading in everything posty entails -->
 	<dependency>chars/karkat.xml</dependency> <!-- and karkat -->
 </dependencies>
-
+<!-- quick test?-->
 <assets>
 	<!-- This is the first half of a big optimization. Some people have a lot of
 	trouble rendering big images, even if only a small part is being requested. While
