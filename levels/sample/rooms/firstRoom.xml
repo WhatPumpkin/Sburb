@@ -69,13 +69,13 @@ not good practice to keep multiple rooms in one file, but hey, better
 safe than sorry.-->
 <rooms>
 	<!-- Here we describe our room, note that here we are using the "map" we 
-	loaded in earlier. Also note the scale variable specifying how much this map
-	should be scaled up for it to reflect the actual room size. We also derive
-	the dimensions of the room from this, which is used to specify the area the
-	camera can see. However width and height can be explicitly
-	specified here if need be. The walkableMap is theoretically optional, but
-	it's incredibly useful and easy to use. -->
-  <room name='firstRoom' walkableMap='firstRoomMap' scale='4'>
+	loaded in earlier. Also note the mapScale variable specifying how much this map
+	should be scaled up for it to reflect the actual room size. If not specified,
+	a multiplier of 4 is assumed. We also derive the dimensions of the room from
+	this, which is used to specify the area the camera can see. However width and
+	height can be explicitly here if need be. The walkableMap is theoretically
+	optional, but it's incredibly useful and easy to use. -->
+  <room name='firstRoom' walkableMap='firstRoomMap' mapScale='4'>
   
   	<!-- here we drop in our character. Since we specified everything in 
   	chars/meenah.xml, we don't have to do much here. We just need to specify
