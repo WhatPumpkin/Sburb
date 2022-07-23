@@ -6,7 +6,7 @@ var Sburb = (function(Sburb){
 ///////////////////////////////////////
 
 //constructor
-Sburb.Character = function(name,x,y,width,height,sx,sy,sWidth,sHeight,sheet,bootstrap){
+Sburb.Character = function(name,idleLength,walkLength,x,y,width,height,sx,sy,sWidth,sHeight,sheet,bootstrap){
 	Sburb.Sprite.call(this,name,x,y,width,height,null,null,Sburb.Sprite.prototype.MG_DEPTHING,true);
 
 	this.speed = 12;
@@ -27,14 +27,14 @@ Sburb.Character = function(name,x,y,width,height,sx,sy,sWidth,sHeight,sheet,boot
 		sWidth = typeof sWidth == "number" ? sWidth : width;
 		sHeight = typeof sHeight == "number" ? sHeight : height;
 
-		this.addAnimation(new Sburb.Animation("idleFront",sheet,sx,sy,sWidth,sHeight,0,1,2));
-		this.addAnimation(new Sburb.Animation("idleRight",sheet,sx,sy,sWidth,sHeight,1,1,2));
-		this.addAnimation(new Sburb.Animation("idleBack",sheet,sx,sy,sWidth,sHeight,2,1,2));
-		this.addAnimation(new Sburb.Animation("idleLeft",sheet,sx,sy,sWidth,sHeight,3,1,2));
-		this.addAnimation(new Sburb.Animation("walkFront",sheet,sx,sy,sWidth,sHeight,4,2,4));
-		this.addAnimation(new Sburb.Animation("walkRight",sheet,sx,sy,sWidth,sHeight,6,2,4));
-		this.addAnimation(new Sburb.Animation("walkBack",sheet,sx,sy,sWidth,sHeight,8,2,4));
-		this.addAnimation(new Sburb.Animation("walkLeft",sheet,sx,sy,sWidth,sHeight,10,2,4));
+		this.addAnimation(new Sburb.Animation("idleFront",sheet,sx,sy,sWidth,sHeight,idleLength*0,idleLength,4));
+		this.addAnimation(new Sburb.Animation("idleRight",sheet,sx,sy,sWidth,sHeight,idleLength*1,idleLength,4));
+		this.addAnimation(new Sburb.Animation("idleBack",sheet,sx,sy,sWidth,sHeight,idleLength*2,idleLength,4));
+		this.addAnimation(new Sburb.Animation("idleLeft",sheet,sx,sy,sWidth,sHeight,idleLength*3,idleLength,4));
+		this.addAnimation(new Sburb.Animation("walkFront",sheet,sx,sy,sWidth,sHeight,idleLength*4+walkLength*0,walkLength,4));
+		this.addAnimation(new Sburb.Animation("walkRight",sheet,sx,sy,sWidth,sHeight,idleLength*4+walkLength*1,walkLength,4));
+		this.addAnimation(new Sburb.Animation("walkBack",sheet,sx,sy,sWidth,sHeight,idleLength*4+walkLength*2,walkLength,4));
+		this.addAnimation(new Sburb.Animation("walkLeft",sheet,sx,sy,sWidth,sHeight,idleLength*4+walkLength*3,walkLength,4));
 	
 
 		this.startAnimation("walkFront");
@@ -443,6 +443,8 @@ Sburb.Character.prototype.isNPC = function(){
 Sburb.parseCharacter = function(charNode, assetFolder) {
   	var attributes = charNode.attributes;
   	var newChar = new Sburb.Character(attributes.getNamedItem("name").value,
+					attributes.getNamedItem("idleAnimLength") ? parseInt(attributes.getNamedItem("idleAnimLength").value) : 1,
+					attributes.getNamedItem("walkAnimLength") ? parseInt(attributes.getNamedItem("walkAnimLength").value) : 2,
   				    attributes.getNamedItem("x")?parseInt(attributes.getNamedItem("x").value):0,
   				    attributes.getNamedItem("y")?parseInt(attributes.getNamedItem("y").value):0,
   				    parseInt(attributes.getNamedItem("width").value),

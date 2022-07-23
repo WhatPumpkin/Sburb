@@ -11,7 +11,7 @@ and even their music. Often this is used to also link in their actual conversati
 	Characters use a single sprite sheet to describe eight different animations, 
 	and therefore need a lot of parameters to properly describe themselves.
 	Characters are by default depth='1' (in the midground). -->
-	<character class='meenah' name='meenah' sx='-50' sy='-115' sWidth='100' sHeight='130' width='35' height='25' sheet='meenahSheet' state='walkFront' facing='Front'>
+	<character class='meenah' idleAnimLength="1" walkAnimLength="2" name='meenah' sx='-50' sy='-115' sWidth='100' sHeight='130' width='35' height='25' sheet='meenahSheet' state='walkFront' facing='Front'>
 		
 	</character>
 	
