@@ -1,3 +1,7 @@
+This is a modified version of the SBURB engine. It has no affiliation with the original developers and is exclusively intended to provide a slightly more usable version of the engine in the modern day.
+
+---
+
 Copyright (c) 2012, Alexis Beingessner
 All rights reserved.
 
