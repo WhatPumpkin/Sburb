@@ -1,6 +1,8 @@
 # SBURB Engine
 
-This is a modified version of the SBURB engine. It has no affiliation with the original developers and is exclusively intended to provide a slightly more usable version of the engine in the modern day.
+This is a slightly modified version of the SBURB engine. It has no affiliation with the original developers and is exclusively intended to provide a slightly more usable version of the engine in the modern day.
+
+This project currently includes some minor fixes, improved instructions, all necessary files for the "social" dialog type, as well as a functional "production.bat" file for Windows users.
 
 ## Development
 
