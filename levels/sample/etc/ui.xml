@@ -1,6 +1,11 @@
 <!-- In this file we configure the user interface -->
 <sburb description='ui configuration'>
 
+<!--
+To use the "social" dialog type uncomment the asset and the tags at the very bottom.
+Then add type="social" after box="dialogBox", but before the > in the "dialoger" tag.
+-->
+
 <assets>
 	<!-- SburbFont is the font the system will try to use by default. Here we specify
 	what fonts the system should try to use. The first one it finds that works it
@@ -22,6 +27,12 @@
 
   <asset name='dialogBox' type='graphic'>interface/boxes/dialogBoxBig.png</asset>
   <asset name='closeButtonSheet' type='graphic'>interface/closeconversation.png</asset>
+
+  <!-- For the "social" dialog type. -->
+  <!--<asset name='hashTagBarSheet' type='graphic'>interface/hashtagbar.png</asset>
+  <asset name='heartButtonSheet' type='graphic'>interface/icons_heart.png</asset>
+  <asset name='spadeButtonSheet' type='graphic'>interface/icons_spade.png</asset>
+  <asset name='bubbleButtonSheet' type='graphic'>interface/icons_bub.png</asset>-->
   
 </assets>
 
@@ -50,8 +61,14 @@
   		</action>
   	</spritebutton>
   	
-  	<!-- here we configure all the parameters used by the dialoger system. This are
-  	pretty reasonable defaults, but you can mess around with them if you want -->
+  	<!--
+		Here we configure all the parameters used by the dialoger system. This are
+  		pretty reasonable defaults, but you can mess around with them if you want.
+
+		There is also an optional "type" parameter, which can be set to "social" for
+		the more complex system with hashtags seen in some Openbound games. Note that
+		some tags need to be uncommented for this feature to work.
+	-->
 		<dialoger alertPos="56,120" talkPosRight="20,120" talkPosLeft="90,120" hiddenPos="-1000,120"
 			spriteStartLeft="-300,450" spriteEndLeft="100,450" spriteStartRight="950,450" spriteEndRight="550,450"
 			alertTextDimensions="30,30,450,220" leftTextDimensions="150,30,350,220" rightTextDimensions="30,30,350,220"
@@ -63,4 +80,21 @@
 <spritebutton name='closeButton' x='220' y='60' width='203' height='37' sheet='closeButtonSheet'>
 	<action command='skipDialog' silent='true'> </action>
 </spritebutton>
+
+<!-- The following content is for the "social" dialog type. Names are keywords. -->
+<!--<sprite name='hashTagBar'>
+	<animation sheet='hashTagBarSheet'/>
+</sprite>
+
+<spritebutton name='spadeButton' x='440' y='300' width='30' height='26' sheet='spadeButtonSheet'>
+	<action command='setButtonState' silent='true'>heartButton,0</action>
+</spritebutton>
+
+<spritebutton name='heartButton' x='480' y='300' width='30' height='26' sheet='heartButtonSheet'>
+	<action command='setButtonState' silent='true'>spadeButton,0</action>
+</spritebutton>
+
+<spritebutton name='bubbleButton' x='510' y='300' width='30' height='26' sheet='bubbleButtonSheet'>
+	<action command='cancel' silent='true' soft='true'/>
+</spritebutton>-->
 </sburb>
