@@ -2,7 +2,12 @@
 
 This is a slightly modified version of the SBURB engine. It has no affiliation with the original developers and is exclusively intended to provide a slightly more usable version of the engine in the modern day.
 
-This project currently includes some minor fixes, improved instructions, all necessary files for the "social" dialog type, as well as a functional "production.bat" file for Windows users.
+This project currently includes:
+- Minor fixes.
+- Improved instructions.
+- All necessary files for the "social" dialog type
+- A functional production method for Windows users.
+- The ability to change the length of the idle and walking animation for characters.
 
 ## Development
 
